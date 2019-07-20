@@ -22,12 +22,27 @@ function Header(props) {
                     })}
                     onClick={()=>browserHistory.push('/tickets')}>Tickets
                 </a>
-                <a onClick={()=>browserHistory.push('/login')}>Logout</a>
+                <a onClick={()=>{
+                    localStorage.removeItem('user');
+                    browserHistory.push('/login')}}>
+                    Logout
+                </a>
             </div>
             <span className="Menu" onClick={() => openNav()}>&#9776;</span>
             <span className="Title">{props.page}</span>
+            <div class="header-right" onClick={()=>goToPage(props.page)}>
+                <span className="add-new">&#10010;</span>
+                <span className="add-new">Add New</span>
+            </div>
         </div>
     )
+}
+
+function goToPage(page){
+    if(page === "Users")
+        browserHistory.push('/user')
+    else if(page === "Tickets") 
+        browserHistory.push('/user')
 }
 
 function openNav() {

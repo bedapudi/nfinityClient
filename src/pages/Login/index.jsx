@@ -14,9 +14,6 @@ export default class Login extends React.Component {
     }
 
     handleLogin() {
-        console.log("login called")
-        console.log("email", this.state.email)
-        console.log("email", this.state.password)
         let data = {
             email: this.state.email,
             password: this.state.password
@@ -25,14 +22,19 @@ export default class Login extends React.Component {
             .post(REST_URL + '/login')
             .set('Content-Type', 'application/x-www-form-urlencoded')
             .send(data)
-            .end(function (err, res) {
+            .end((err, res)=> {
                 if (err)
                     console.log(err)
                 else {
                     console.log(res);
                     let result = JSON.parse(res.text)
                     if (result.loginSuccess) {
-                        if (result.user.is_admin) {
+                        let user = result.user
+                        // store user details and basic auth credentials in local storage 
+                        // to keep user logged in between page refreshes
+                        user.authdata = window.btoa(this.state.email + ':' + this.state.password);
+                        localStorage.setItem('user', JSON.stringify(user));
+                        if (user.is_admin) {
                             browserHistory.push("/users")
                         } else {
                             browserHistory.push("/tickets")
@@ -45,7 +47,6 @@ export default class Login extends React.Component {
     }
 
     handleEmailChange(e) {
-        console.log("handleEmailChange")
         this.setState({ email: e.target.value });
     }
     handlePasswordChange(e) {
