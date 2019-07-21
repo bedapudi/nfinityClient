@@ -113,7 +113,7 @@ export default class User extends React.Component {
                             x.className = "show";
                             setTimeout(function(){
                                  x.className = x.className.replace("show", ""); 
-                        }, 3000);
+                        }, 1500);
                         } else {
                             alert("failed to update user")
                         }
@@ -144,7 +144,7 @@ export default class User extends React.Component {
                             setTimeout(function(){
                                  x.className = x.className.replace("show", ""); 
                                  browserHistory.push("/users")
-                        }, 3000);
+                        }, 1500);
                             //
                         } else {
                             alert("failed to add user")

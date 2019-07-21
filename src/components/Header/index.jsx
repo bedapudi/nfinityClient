@@ -5,17 +5,21 @@ import c from 'rc-classnames'
 import './styles.css'
 
 function Header(props) {
+    let user = JSON.parse(localStorage.getItem('user'));
     return (
         <div className="header">
             <div id="mySidenav" className="sidenav">
                 <span className="Title">Helpdesk</span>
                 <a href="javascript:void(0)" className="closebtn" onClick={() => closeNav()}>&times;</a>
-                <a 
-                    className={c('menu-option', {
-                        'active': props.page === 'Users'
-                    })}
-                    onClick={()=>browserHistory.push('/users')}>Users
-                </a>
+                {user.is_admin &&
+                    <a 
+                        className={c('menu-option', {
+                            'active': props.page === 'Users'
+                        })}
+                        onClick={()=>browserHistory.push('/users')}>Users
+                    </a>
+                }
+                
                 <a 
                     className={c('menu-option', {
                         'active': props.page === 'Tickets'
@@ -42,7 +46,7 @@ function goToPage(page){
     if(page === "Users")
         browserHistory.push('/user')
     else if(page === "Tickets") 
-        browserHistory.push('/user')
+        browserHistory.push('/ticket')
 }
 
 function openNav() {
