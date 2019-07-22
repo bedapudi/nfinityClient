@@ -66,7 +66,6 @@ export default class Comments extends React.Component{
 
     render(){
         let {comments, newComment} = this.state
-        let {ticketId} = this.props
         let commentList
         if (comments.length) {
             commentList = comments.map((comment, index) => {
