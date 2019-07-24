@@ -53,21 +53,23 @@ export default class Tickets extends React.Component{
         return(
             <div>
                 <Header page="Tickets" />
-                <table className="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Description</th>
-                            <th>Status</th>
-                            <th>Category</th>
-                            <th>Created By</th>
-                            <th>Created at</th>
-                        </tr>
-                    </thead>
-                    <tbody className='tickets'>
-                        {ticketList}
-                    </tbody>
-                </table>
+                <div className="table-responsive">
+                    <table className="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Description</th>
+                                <th>Status</th>
+                                <th>Category</th>
+                                <th>Created By</th>
+                                <th>Created at</th>
+                            </tr>
+                        </thead>
+                        <tbody className='tickets'>
+                            {ticketList}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         )
     }

@@ -54,6 +54,7 @@ export default class Users extends React.Component {
         return (
             <div>
                 <Header page="Users" />
+                <div className="table-responsive">
                 <table className="table table-striped">
                     <thead>
                         <tr>
@@ -69,6 +70,7 @@ export default class Users extends React.Component {
                         {userList}
                     </tbody>
                 </table>
+                </div>
             </div>
         )
     }
