@@ -1,0 +1,25 @@
+.align-center{
+    text-align: center;
+}
+
+.login{
+    margin-top: 10%;
+}
+
+.login h1{
+    color: #111;
+}
+
+.login form{
+    text-align: -webkit-center;
+}
+
+.login input{
+    width: 30%;
+    margin: 30px;
+}
+
+.login button{
+    width: 20%;
+    margin: 30px;
+}

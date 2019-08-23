@@ -1,0 +1,19 @@
+.details-header{
+    background-color: #111;
+    text-align: center;
+}
+.details-header .Title{
+    font-size: 40px;
+    font-family:'Times New Roman', Times, serif;
+    color: whitesmoke;
+    padding-left: 15px;
+}
+.details-header .Back{
+  font-size: 15px;
+  font-family:'Times New Roman', Times, serif;
+  color: lightgrey;
+  padding-left: 15px;
+  float:left;
+  padding-top: 20px;
+  cursor: pointer;
+}
